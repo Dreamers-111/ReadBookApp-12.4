@@ -7,6 +7,9 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		092BAC6627D26BDC008CD578 /* SignUpView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 092BAC6527D26BDC008CD578 /* SignUpView.swift */; };
+		092BAC6B27D26C29008CD578 /* SignInView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 092BAC6A27D26C29008CD578 /* SignInView.swift */; };
+		095E8F2F27D592240005C50C /* HomeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 095E8F2E27D592240005C50C /* HomeView.swift */; };
 		947D31D627D12D050022893A /* ReadBookAppApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 947D31D527D12D050022893A /* ReadBookAppApp.swift */; };
 		947D31D827D12D050022893A /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 947D31D727D12D050022893A /* ContentView.swift */; };
 		947D31DA27D12D0D0022893A /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 947D31D927D12D0D0022893A /* Assets.xcassets */; };
@@ -33,6 +36,9 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		092BAC6527D26BDC008CD578 /* SignUpView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpView.swift; sourceTree = "<group>"; };
+		092BAC6A27D26C29008CD578 /* SignInView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignInView.swift; sourceTree = "<group>"; };
+		095E8F2E27D592240005C50C /* HomeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeView.swift; sourceTree = "<group>"; };
 		947D31D227D12D050022893A /* ReadBookApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ReadBookApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		947D31D527D12D050022893A /* ReadBookAppApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReadBookAppApp.swift; sourceTree = "<group>"; };
 		947D31D727D12D050022893A /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -72,6 +78,16 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		092BAC6427D26BAF008CD578 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				092BAC6527D26BDC008CD578 /* SignUpView.swift */,
+				092BAC6A27D26C29008CD578 /* SignInView.swift */,
+				095E8F2E27D592240005C50C /* HomeView.swift */,
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
 		947D31C927D12D050022893A = {
 			isa = PBXGroup;
 			children = (
@@ -97,6 +113,7 @@
 			children = (
 				947D31D527D12D050022893A /* ReadBookAppApp.swift */,
 				947D31D727D12D050022893A /* ContentView.swift */,
+				092BAC6427D26BAF008CD578 /* Views */,
 				947D31D927D12D0D0022893A /* Assets.xcassets */,
 				947D31DE27D12D0D0022893A /* Info.plist */,
 				947D31DB27D12D0D0022893A /* Preview Content */,
@@ -260,6 +277,9 @@
 			buildActionMask = 2147483647;
 			files = (
 				947D31D827D12D050022893A /* ContentView.swift in Sources */,
+				092BAC6627D26BDC008CD578 /* SignUpView.swift in Sources */,
+				092BAC6B27D26C29008CD578 /* SignInView.swift in Sources */,
+				095E8F2F27D592240005C50C /* HomeView.swift in Sources */,
 				947D31D627D12D050022893A /* ReadBookAppApp.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
