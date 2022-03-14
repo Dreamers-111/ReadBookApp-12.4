@@ -18,9 +18,8 @@
 		947C837227DF7334000BA36F /* UserInput.swift in Sources */ = {isa = PBXBuildFile; fileRef = 947C837127DF7334000BA36F /* UserInput.swift */; };
 		947C837427DF73AA000BA36F /* Buttons.swift in Sources */ = {isa = PBXBuildFile; fileRef = 947C837327DF73AA000BA36F /* Buttons.swift */; };
 		947C837D27DF88A8000BA36F /* UserInput2.swift in Sources */ = {isa = PBXBuildFile; fileRef = 947C837C27DF88A8000BA36F /* UserInput2.swift */; };
-		947C837F27DF9542000BA36F /* Title2.swift in Sources */ = {isa = PBXBuildFile; fileRef = 947C837E27DF9542000BA36F /* Title2.swift */; };
-		947C838127DF957A000BA36F /* Image2.swift in Sources */ = {isa = PBXBuildFile; fileRef = 947C838027DF957A000BA36F /* Image2.swift */; };
 		947C838327DF95D7000BA36F /* Buttons2.swift in Sources */ = {isa = PBXBuildFile; fileRef = 947C838227DF95D7000BA36F /* Buttons2.swift */; };
+		947C838527DFB33E000BA36F /* Title&Image2.swift in Sources */ = {isa = PBXBuildFile; fileRef = 947C838427DFB33E000BA36F /* Title&Image2.swift */; };
 		947D31D627D12D050022893A /* ReadBookAppApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 947D31D527D12D050022893A /* ReadBookAppApp.swift */; };
 		947D31D827D12D050022893A /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 947D31D727D12D050022893A /* ContentView.swift */; };
 		947D31DA27D12D0D0022893A /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 947D31D927D12D0D0022893A /* Assets.xcassets */; };
@@ -58,9 +57,8 @@
 		947C837127DF7334000BA36F /* UserInput.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserInput.swift; sourceTree = "<group>"; };
 		947C837327DF73AA000BA36F /* Buttons.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Buttons.swift; sourceTree = "<group>"; };
 		947C837C27DF88A8000BA36F /* UserInput2.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserInput2.swift; sourceTree = "<group>"; };
-		947C837E27DF9542000BA36F /* Title2.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Title2.swift; sourceTree = "<group>"; };
-		947C838027DF957A000BA36F /* Image2.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Image2.swift; sourceTree = "<group>"; };
 		947C838227DF95D7000BA36F /* Buttons2.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Buttons2.swift; sourceTree = "<group>"; };
+		947C838427DFB33E000BA36F /* Title&Image2.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Title&Image2.swift"; sourceTree = "<group>"; };
 		947D31D227D12D050022893A /* ReadBookApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ReadBookApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		947D31D527D12D050022893A /* ReadBookAppApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReadBookAppApp.swift; sourceTree = "<group>"; };
 		947D31D727D12D050022893A /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -147,9 +145,8 @@
 			isa = PBXGroup;
 			children = (
 				947C837C27DF88A8000BA36F /* UserInput2.swift */,
-				947C837E27DF9542000BA36F /* Title2.swift */,
-				947C838027DF957A000BA36F /* Image2.swift */,
 				947C838227DF95D7000BA36F /* Buttons2.swift */,
+				947C838427DFB33E000BA36F /* Title&Image2.swift */,
 			);
 			path = Components;
 			sourceTree = "<group>";
@@ -344,17 +341,16 @@
 				947D31D827D12D050022893A /* ContentView.swift in Sources */,
 				095A466127D99A6600770C64 /* BookmarkView.swift in Sources */,
 				092BAC6627D26BDC008CD578 /* SignUpView.swift in Sources */,
-				947C837F27DF9542000BA36F /* Title2.swift in Sources */,
 				947C837427DF73AA000BA36F /* Buttons.swift in Sources */,
 				947C837D27DF88A8000BA36F /* UserInput2.swift in Sources */,
 				947C837227DF7334000BA36F /* UserInput.swift in Sources */,
-				947C838127DF957A000BA36F /* Image2.swift in Sources */,
 				092BAC6B27D26C29008CD578 /* SignInView.swift in Sources */,
 				095C698327DE60D3002916AB /* MenuView.swift in Sources */,
 				947C838327DF95D7000BA36F /* Buttons2.swift in Sources */,
 				095E8F2F27D592240005C50C /* HomeView.swift in Sources */,
 				095A466627D99AE200770C64 /* SettingView.swift in Sources */,
 				947D31D627D12D050022893A /* ReadBookAppApp.swift in Sources */,
+				947C838527DFB33E000BA36F /* Title&Image2.swift in Sources */,
 				095A465C27D99A3300770C64 /* ReadBookView.swift in Sources */,
 				947C837027DF72FC000BA36F /* Image&Title.swift in Sources */,
 			);

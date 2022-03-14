@@ -9,13 +9,7 @@ import SwiftUI
 
 struct Image2: View {
     var body: some View {
-        Image("signin")
-            .resizable()
-            .aspectRatio(contentMode: .fit)
-            .frame(height: 340)
-            .clipShape(Circle())
-            .offset(x:-100,y:-10)
-            .padding(.bottom,-10)
+        
     }
 }
 

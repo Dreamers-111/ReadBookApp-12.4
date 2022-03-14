@@ -31,8 +31,7 @@ struct SignInView: View {
                         .offset(x:30,y:-360)
                         
                 VStack{
-                    Image2()
-                    Title2()
+                    Title_Image2()
                     UserInput2()
                     Buttons2()
                 }

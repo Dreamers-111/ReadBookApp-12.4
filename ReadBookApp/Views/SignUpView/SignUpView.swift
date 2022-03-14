@@ -16,6 +16,8 @@ struct SignUpView: View {
             Image_Title()
             UserInput()
             Buttons()
+            
+          
         }
         .frame(minWidth: 0,
                maxWidth: .infinity,
