@@ -9,6 +9,10 @@
 /* Begin PBXBuildFile section */
 		092BAC6627D26BDC008CD578 /* SignUpView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 092BAC6527D26BDC008CD578 /* SignUpView.swift */; };
 		092BAC6B27D26C29008CD578 /* SignInView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 092BAC6A27D26C29008CD578 /* SignInView.swift */; };
+		095A465C27D99A3300770C64 /* ReadBookView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 095A465B27D99A3300770C64 /* ReadBookView.swift */; };
+		095A466127D99A6600770C64 /* BookmarkView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 095A466027D99A6600770C64 /* BookmarkView.swift */; };
+		095A466627D99AE200770C64 /* SettingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 095A466527D99AE200770C64 /* SettingView.swift */; };
+		095C698327DE60D3002916AB /* MenuView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 095C698227DE60D3002916AB /* MenuView.swift */; };
 		095E8F2F27D592240005C50C /* HomeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 095E8F2E27D592240005C50C /* HomeView.swift */; };
 		947D31D627D12D050022893A /* ReadBookAppApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 947D31D527D12D050022893A /* ReadBookAppApp.swift */; };
 		947D31D827D12D050022893A /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 947D31D727D12D050022893A /* ContentView.swift */; };
@@ -38,6 +42,10 @@
 /* Begin PBXFileReference section */
 		092BAC6527D26BDC008CD578 /* SignUpView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpView.swift; sourceTree = "<group>"; };
 		092BAC6A27D26C29008CD578 /* SignInView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignInView.swift; sourceTree = "<group>"; };
+		095A465B27D99A3300770C64 /* ReadBookView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReadBookView.swift; sourceTree = "<group>"; };
+		095A466027D99A6600770C64 /* BookmarkView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BookmarkView.swift; sourceTree = "<group>"; };
+		095A466527D99AE200770C64 /* SettingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingView.swift; sourceTree = "<group>"; };
+		095C698227DE60D3002916AB /* MenuView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MenuView.swift; sourceTree = "<group>"; };
 		095E8F2E27D592240005C50C /* HomeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeView.swift; sourceTree = "<group>"; };
 		947D31D227D12D050022893A /* ReadBookApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ReadBookApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		947D31D527D12D050022893A /* ReadBookAppApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReadBookAppApp.swift; sourceTree = "<group>"; };
@@ -84,6 +92,10 @@
 				092BAC6527D26BDC008CD578 /* SignUpView.swift */,
 				092BAC6A27D26C29008CD578 /* SignInView.swift */,
 				095E8F2E27D592240005C50C /* HomeView.swift */,
+				095A465B27D99A3300770C64 /* ReadBookView.swift */,
+				095A466027D99A6600770C64 /* BookmarkView.swift */,
+				095A466527D99AE200770C64 /* SettingView.swift */,
+				095C698227DE60D3002916AB /* MenuView.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -277,10 +289,14 @@
 			buildActionMask = 2147483647;
 			files = (
 				947D31D827D12D050022893A /* ContentView.swift in Sources */,
+				095A466127D99A6600770C64 /* BookmarkView.swift in Sources */,
 				092BAC6627D26BDC008CD578 /* SignUpView.swift in Sources */,
 				092BAC6B27D26C29008CD578 /* SignInView.swift in Sources */,
+				095C698327DE60D3002916AB /* MenuView.swift in Sources */,
 				095E8F2F27D592240005C50C /* HomeView.swift in Sources */,
+				095A466627D99AE200770C64 /* SettingView.swift in Sources */,
 				947D31D627D12D050022893A /* ReadBookAppApp.swift in Sources */,
+				095A465C27D99A3300770C64 /* ReadBookView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

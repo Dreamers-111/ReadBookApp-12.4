@@ -8,6 +8,7 @@
 import SwiftUI
 
 struct SignUpView: View {
+    @Environment(\.presentationMode) var presentationMode
     @State var email: String = ""
     @State var username: String = ""
     @State var password: String = ""
@@ -104,16 +105,13 @@ struct SignUpView: View {
             ).padding(.bottom,10)
             
             Button(action: {
-                
+                presentationMode.wrappedValue.dismiss()
             }, label: {
-                Image(systemName: "chevron.up")
-                    .font(.largeTitle)
-                    .foregroundColor(Color(#colorLiteral(red: 0.12941177189350128, green: 0.7215686440467834, blue: 0.572549045085907, alpha: 1)))
+                Image(systemName: "chevron.down")
+                    .font(.largeTitle).foregroundColor(Color(#colorLiteral(red: 0.12941177189350128, green: 0.7215686440467834, blue: 0.572549045085907, alpha: 1)))
                     .frame(width: 42, height: 42)
-                    .multilineTextAlignment(.center)
                     .background((Color(#colorLiteral(red: 1, green: 1, blue: 1, alpha: 1))))
-                }
-            )
+            })
         }
     }
 }
