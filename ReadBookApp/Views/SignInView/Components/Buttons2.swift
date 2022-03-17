@@ -18,12 +18,12 @@ struct Buttons2: View {
             
             Spacer()
             
-            NavigationLink(tag: 2, selection: $selection) {
+            NavigationLink(tag: 3, selection: $selection) {
                 HomeView()
             } label: {
                 Button {
                     if username == "huy" && password == "huy123" {
-                        self.selection = 2
+                        self.selection = 3
                     }
                 } label: {
                         Text("ĐĂNG NHẬP")
@@ -43,11 +43,11 @@ struct Buttons2: View {
 
             Spacer()
             
-            NavigationLink(tag: 1, selection: $selection) {
+            NavigationLink(tag: 2, selection: $selection) {
                 SignUpView()
             } label: {
                 Button {
-                    self.selection = 1
+                    self.selection = 2
                 } label: {
                     VStack {
                         RoundedRectangle(cornerRadius: 1)
