@@ -9,9 +9,9 @@ import SwiftUI
 
 struct UserInput: View {
     
-    @State private var email: String = ""
-    @State private var username: String = ""
-    @State private var password: String = ""
+    @Binding  var email: String
+    @Binding  var username: String
+    @Binding  var password: String
     @State private var hide = false
     
     var body: some View {
@@ -79,6 +79,6 @@ struct UserInput: View {
 
 struct UserInput_Previews: PreviewProvider {
     static var previews: some View {
-        UserInput()
+        UserInput(email: Binding.constant(""), username: Binding.constant(""), password: Binding.constant(""))
     }
 }

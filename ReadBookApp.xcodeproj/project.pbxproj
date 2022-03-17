@@ -144,9 +144,9 @@
 		947C837627DF834B000BA36F /* Components */ = {
 			isa = PBXGroup;
 			children = (
+				947C838427DFB33E000BA36F /* Title&Image2.swift */,
 				947C837C27DF88A8000BA36F /* UserInput2.swift */,
 				947C838227DF95D7000BA36F /* Buttons2.swift */,
-				947C838427DFB33E000BA36F /* Title&Image2.swift */,
 			);
 			path = Components;
 			sourceTree = "<group>";

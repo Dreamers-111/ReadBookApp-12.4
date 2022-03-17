@@ -8,24 +8,21 @@
 import SwiftUI
 
 struct SignUpView: View {
-
-
-
+    
+    @State private var email = ""
+    @State private var username = ""
+    @State private var password = ""
+    
     var body: some View {
         VStack {
             Image_Title()
-            UserInput()
-            Buttons()
-            
-          
+            UserInput(email: $email, username: $username, password: $password)
+            Buttons(email: $email, username: $username, password: $password)
         }
-        .frame(minWidth: 0,
-               maxWidth: .infinity,
-               minHeight: 0,
-               maxHeight: .infinity)
-        .ignoresSafeArea(edges: .top)
-     
-
+        .navigationBarTitle("")
+        .navigationBarHidden(true)
+        
+        
     }
 }
 

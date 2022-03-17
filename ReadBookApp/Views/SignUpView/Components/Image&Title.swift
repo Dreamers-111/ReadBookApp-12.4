@@ -10,15 +10,13 @@ import SwiftUI
 struct Image_Title: View {
     var body: some View {
         VStack{
-            Spacer()
             Text("D R E A M E R S")
                 .font(.system(size: 35))
                 .fontWeight(.heavy)
                 .tracking(4)
                 .foregroundColor(Color(red: 0.13, green: 0.72, blue: 0.57))
                 .multilineTextAlignment(.center)
-                .padding([.top, .leading, .trailing], 20)
-                .padding(.bottom, -1)
+       
             
             Spacer()
             

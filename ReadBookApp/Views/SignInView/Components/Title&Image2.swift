@@ -29,9 +29,9 @@ struct Title_Image2: View {
                                        green: 0.722,
                                        blue: 0.573))
                 .multilineTextAlignment(.center)
-        
+            
             Spacer()
-        
+            
             Text("- WORDS HAVE POWER - ")
                 .font(.system(size: 16))
                 .fontWeight(.medium)
