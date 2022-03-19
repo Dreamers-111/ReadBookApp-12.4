@@ -15,136 +15,74 @@ struct SignInView: View {
     
     var body: some View {
         
-            ZStack{
-                
-                Circle()
-                    .fill(Color(red: 0.40392157435417175,
-                                green: 0.7764706015586853,
-                                blue: 0.8313725590705872))
-                    .frame(height: 400)
-                    .offset(x:100,y:-330)
-                
-                
-                Circle()
-                    .fill(Color(red: 0.3019607961177826,
-                                green: 0.7450980544090271,
-                                blue: 0.7843137383460999))
-                    .frame(height: 400)
-                    .offset(x:30,y:-360)
-                
-                VStack{
-                    Title_Image2()
-                    UserInput2(username: $username, password: $password)
-                    Buttons2(username: $username, password: $password)
-                }
+     
+            VStack(spacing:0)
+            {
+                imageSignIn()
+                titleSignIn()
+                    .padding(.vertical)
+                subtitleSighIn()
+                    .padding(.bottom)
+                UserInput2(username: $username, password: $password)
+                    .padding(.top)
+                    .padding(.horizontal)
+                    .padding(.horizontal)
+                    .padding(.horizontal)
+                Buttons2(username: $username, password: $password)
+                    .padding(.top)
             }
-            .frame(minWidth: 0,
-                   maxWidth: .infinity,
-                   minHeight: 0,
-                   maxHeight: .infinity)
-            .ignoresSafeArea(edges: .top)
             .navigationBarTitle("")
             .navigationBarHidden(true)
-            
-       
+            .ignoresSafeArea(edges: .top)
+        
         
     }
 }
 
-struct Title_Image2: View {
-    var body: some View {
-        VStack{
-            
-            
-            Image("signin")
-                .resizable()
-                .aspectRatio(contentMode: .fit)
-                .frame(height: 340)
-                .clipShape(Circle())
-                .offset(x:-100,y:-10)
-                .padding(.bottom,-10)
-            
-            Spacer()
-            
-            Text("D R E A M E R S")
-                .font(.system(size: 45))
-                .fontWeight(.heavy)
-                .foregroundColor(Color(red: 0.129,
-                                       green: 0.722,
-                                       blue: 0.573))
-                .multilineTextAlignment(.center)
-            
-            Spacer()
-            
-            Text("- WORDS HAVE POWER - ")
-                .font(.system(size: 16))
-                .fontWeight(.medium)
-                .foregroundColor(Color(red: 0.13,
-                                       green: 0.72,
-                                       blue: 0.57))
-                .tracking(4)
-                .multilineTextAlignment(.center)
-            
-            Spacer()
-            
-        }
-    }
-}
 
 struct UserInput2: View {
     @Binding var username:String
     @Binding var password:String
-    @State private var hide = false
+    @State private var hide = true
     
     var body: some View {
-        VStack{
-            
-            Spacer()
-            
+        VStack(spacing:0){
             TextField("Tài khoản", text: $username)
+                .font(.system(size: 16))
                 .padding(.all, 10)
-                .padding(.leading, 15)
+                .padding(.horizontal)
                 .overlay(
                     RoundedRectangle(cornerRadius: 300)
                         .stroke(Color(red: 0.129, green: 0.722, blue: 0.573), lineWidth: 1)
                 )
-                .frame(width: 286, height: 43)
+                .padding(.bottom)
             
-            Spacer()
-            
-            ZStack(alignment:.trailing) {
-                if self.hide{
-                    TextField("Mật khẩu", text: $password)
-                        .padding(.all, 10)
-                        .padding(.leading, 15)
-                        .overlay(
-                            RoundedRectangle(cornerRadius: 300)
-                                .stroke(Color(red: 0.129, green: 0.722, blue: 0.573), lineWidth: 1)
-                        )
-                        .frame(width: 286, height: 43)
-                } else {
-                    SecureField("Mật khẩu", text: $password)
-                        .padding(.all, 10)
-                        .padding(.leading, 15)
-                        .overlay(
-                            RoundedRectangle(cornerRadius: 300)
-                                .stroke(Color(red: 0.129, green: 0.722, blue: 0.573), lineWidth: 1)
-                        )
-                        .frame(width: 286, height: 43)
+            HStack{
+                if hide {
+                    SecureField("Mật khẩu",text: $password)
+                        .font(.system(size:16))
                 }
+                else{
+                    TextField("Mật khẩu",text: $password)
+                        .font(.system(size:16))
+                }
+                
                 Button {
-                    self.hide.toggle()
+                    hide.toggle()
                 } label: {
-                    Image(systemName: self.hide ? "eye.fill":"eye.slash.fill")
-                        .foregroundColor(self.hide ? Color.green : Color.secondary)
-                        .padding(.trailing,10)
+                    Image(systemName: hide ?  "eye.slash.fill" : "eye.fill" )
+                        .foregroundColor(hide ?  Color.secondary : Color.green )
+                        .padding(.leading)
                 }
+                
             }
-            Spacer()
-            
-            
+            .padding(.all,10)
+            .padding(.horizontal)
+            .overlay(RoundedRectangle(cornerRadius: 300)
+                .stroke(Color(red: 0.129, green: 0.722, blue: 0.573), lineWidth: 1)
+            )
+            .padding(.bottom)
         }
-        
     }
 }
 
@@ -155,10 +93,7 @@ struct Buttons2: View {
     @State private var selection: Int? = nil
     
     var body: some View {
-        VStack{
-            
-            Spacer()
-            
+        VStack(spacing:0){
             NavigationLink(tag: 3, selection: $selection) {
                 HomeView()
             } label: {
@@ -167,47 +102,47 @@ struct Buttons2: View {
                         self.selection = 3
                     }
                 } label: {
-                        Text("ĐĂNG NHẬP")
-                            .font(.custom("Poppins Regular", size: 15))
-                            .foregroundColor(.white)
-                            .tracking(0.75)
-                            .frame(width: 173, height: 43)
-                            .background(Color(red: 0.12941177189350128,
-                                               green: 0.7215686440467834,
-                                               blue: 0.572549045085907))
-                            .cornerRadius(16)
-                    }
+                    Text("ĐĂNG NHẬP")
+                        .font(.custom("Poppins Regular", size: 16))
+                        .foregroundColor(.white)
+                        .tracking(1)
+                        .padding(.all,10)
+                        .padding(.horizontal)
+                        .padding(.horizontal)
+                        .background(Color(red: 0.12941177189350128,
+                                          green: 0.7215686440467834,
+                                          blue: 0.572549045085907))
+                        .cornerRadius(16)
+                }
+                .padding(.bottom)
             }
 
-            
-            
-
-            Spacer()
-            
             NavigationLink(tag: 2, selection: $selection) {
                 SignUpView()
             } label: {
                 Button {
                     self.selection = 2
                 } label: {
-                    VStack {
-                        RoundedRectangle(cornerRadius: 1)
-                            .fill(Color(red: 0.12941177189350128,
-                                        green: 0.7215686440467834,
-                                        blue: 0.572549045085907))
-                            .frame(width: 170, height: 0.5)
-                            
                         Text("Bạn chưa có tài khoản?")
-                            .font(.custom("Poppins Regular", size: 15))
+                            .font(.custom("Poppins Regular", size: 14))
                             .foregroundColor(Color(red: 0.71,
                                                    green: 0.71,
                                                    blue: 0.71))
-                    }
+                            .padding(.top,5)
+                            .overlay(
+                                VStack{
+                                    RoundedRectangle(cornerRadius: 1)
+                                        .fill(Color(red: 0.12941177189350128,
+                                                    green: 0.7215686440467834,
+                                                    blue: 0.572549045085907))
+                                        .frame(maxWidth: .infinity, maxHeight: 1)
+                                    
+                                    Spacer()
+                                }
+                            )
                 }
             }
-            
-            
-            
+                 
             Spacer()
             
             NavigationLink(tag: 1, selection: $selection) {
@@ -221,10 +156,9 @@ struct Buttons2: View {
                         .foregroundColor(Color(red: 0.12941177189350128,
                                                green: 0.7215686440467834,
                                                blue: 0.572549045085907))
-                        .frame(width: 40, height: 40)
                 }
             }
-
+            
         }
     }
 }
@@ -232,5 +166,39 @@ struct Buttons2: View {
 struct SignInView_Previews: PreviewProvider {
     static var previews: some View {
         SignInView()
+    }
+}
+
+struct imageSignIn: View {
+    var body: some View {
+        Image("signin")
+            .resizable()
+            .aspectRatio(contentMode: .fill)
+    }
+}
+
+struct titleSignIn: View {
+    var body: some View {
+        Text("D R E A M E R S")
+            .font(.system(size: 36))
+            .fontWeight(.heavy)
+            .foregroundColor(Color(red: 0.13,
+                                   green: 0.72,
+                                   blue: 0.57))
+            .tracking(4)
+            .multilineTextAlignment(.center)
+    }
+}
+
+struct subtitleSighIn: View {
+    var body: some View {
+        Text("- WORDS HAVE POWER - ")
+            .font(.system(size: 14))
+            .fontWeight(.medium)
+            .foregroundColor(Color(red: 0.13,
+                                   green: 0.72,
+                                   blue: 0.57))
+            .tracking(4)
+            .multilineTextAlignment(.center)
     }
 }
