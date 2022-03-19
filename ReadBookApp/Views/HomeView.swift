@@ -7,315 +7,81 @@
 
 import SwiftUI
 
+class myBook{
+    var title:String
+    var author:String
+    private var imageName:String
+    var image:Image{
+        Image(imageName)
+    }
+    init(title:String,author:String,imageName:String){
+        self.title = title
+        self.author = author
+        self.imageName = imageName
+    }
+}
+
 struct HomeView: View {
     
-    @State var username: String = "Dreamers"
+    @State private var username: String = "Dreamers"
     @State private var searchText = ""
-
+    let categories = ["Tiểu thuyết","Khoa học","Lãng mạn","Tâm lý","Giáo dục"]
+    let books1 = [myBook(title: "20 giờ đầu tiên", author: "Josh Kaufman", imageName: "nhasachmienphi-20-gio-dau-tien"),
+                  myBook(title: "Một ngày cho đời", author: "Christin Antoni", imageName: "nhasachmienphi-mot-ngay-cho-mot-doi"),
+                  myBook(title: "Vượn trần trụi", author: "Desmond Morris", imageName: "nhasachmienphi-vuon-tran-trui"),
+                  myBook(title: "Juliet", author: "Anne Fortier", imageName: "nhasachmienphi-juliet")]
+    let books2 = [myBook(title: "Bảy năm sáu", author: "Guillaume Musso", imageName: "nhasachmienphi-bay-nam-sau"),
+                  myBook(title: "Sói thảo nguyên", author: "Hẻmann hesse", imageName: "nhasachmienphi-soi-thao-nguyen"),
+                  myBook(title: "20 giờ đầu tiên", author: "Josh Kaufman", imageName: "nhasachmienphi-20-gio-dau-tien"),
+                  myBook(title: "Juliet", author: "Anne Fortier", imageName: "nhasachmienphi-juliet")]
+    @State private var selectedCategoryIndex = 0
+    @State private var selectedBottomNavBarItemIndex = 0
     var body: some View {
-        
-        ScrollView(showsIndicators: false){
-            VStack {
-                
-                sideMenu_profileButton()
-                
-                welcomeText(username: $username)
-                
-                searchBar(searchText: $searchText)
-        
-                HStack {
-                    Button {
-                    } label: {
-                        ZStack {
-                            Image("photo-1507842217343-583bb7270b66")
-                                .resizable()
-                                .aspectRatio(contentMode: .fill)
-                                .frame(width: 160, height: 89)
-                                .clipShape(RoundedRectangle(cornerRadius: 20))
-                                .overlay(
-                                    RoundedRectangle(cornerRadius: 20)
-                                        .fill(Color(red: 0.6784313917160034, green: 0.8117647171020508, blue: 0.9176470637321472).opacity(0.85))
-                                        .frame(width: 160, height: 89)
-                                )
-                            VStack(spacing: 2) {
-                                Text("THỂ LOẠI")
-                                    .font(.system(size: 22))
-                                    .fontWeight(.heavy)
-                                    .foregroundColor(.white)
-                                Text("# CHUYÊN MỤC")
-                                    .font(.system(size: 14))
-                                    .fontWeight(.semibold)
-                                    .foregroundColor(.white)
-                            }
-                        }
-                    }
-                    Spacer()
-                    Button {
-                    } label: {
-                        ZStack{
-                            Image("photo-1617635837145-cf409451c41e")
-                                .resizable()
-                                .aspectRatio(contentMode: .fill)
-                                .frame(width: 160, height: 89)
-                                .clipShape(RoundedRectangle(cornerRadius: 20))
-                                .overlay(
-                                    RoundedRectangle(cornerRadius: 20)
-                                        .fill(Color(red: 0.5843137502670288, green: 0.7803921699523926, blue: 0.7372549176216125).opacity(0.85))
-                                        .frame(width: 160, height: 89)
-                                )
-                            VStack(spacing: 2) {
-                                Text("BOOKMARK")
-                                    .font(.system(size: 22))
-                                    .fontWeight(.heavy)
-                                    .foregroundColor(.white)
-                       
-                                Text("# TRUYỆN CỦA BẠN")
-                                    .font(.system(size: 14))
-                                    .fontWeight(.semibold)
-                                    .foregroundColor(.white)
-                            }
-                        }
-                    }
+        ZStack {
+            
+            ScrollView(showsIndicators: false) {
+                VStack(alignment: .leading,spacing:0) {
+                    
+                    sideMenu_profileButton()
+                        .padding(.horizontal)
+                    
+                    welcomeText(username: $username)
+                        .padding()
+                    
+                    searchBar(searchText: $searchText)
+                        .padding(.horizontal)
+                    
+                    theLoaiBtn_bookMarkBtn()
+                        .padding()
+                    
+                    categoryBar(categories: categories,
+                                selectedCategoryIndex: $selectedCategoryIndex)
+                    .padding(.leading)
+                    
+                    listBook(books: books1)
+                        .padding(.vertical).padding(.leading)
+                    
+                    
+                    Text("Sách mới")
+                        .font(.system(size: 24))
+                        .fontWeight(.heavy)
+                        .foregroundColor(Color(red: 0.1, green: 0.1, blue: 0.11))
+                        .padding(.top)
+                        .padding(.horizontal)
+                    
+                    listBook(books: books2)
+                        .padding(.leading)
+                        .padding(.vertical)
+                        .padding(.bottom)
+                        .padding(.bottom)
+                        .padding(.bottom)
                 }
-                
-                ScrollView (.horizontal, showsIndicators: false) {
-                    HStack(spacing: 25) {
-                        Button(action: {
-                            
-                        }, label: {
-                            Text("Tiểu thuyết")
-                                .font(.system(size: 16))
-                                .foregroundColor(Color(#colorLiteral(red: 0.1, green: 0.1, blue: 0.11, alpha: 1)))
-                                .multilineTextAlignment(.center)
-                        })
-                        
-                        Button(action: {
-                            
-                        }, label: {
-                            Text("Khoa học")
-                                .font(.system(size: 16))
-                                .foregroundColor(Color(#colorLiteral(red: 0.62, green: 0.62, blue: 0.62, alpha: 1)))
-                                .multilineTextAlignment(.center)
-                        })
-                        
-                        Button(action: {
-                            
-                        }, label: {
-                            Text("Lãng mạn")
-                                .font(.system(size: 16))
-                                .foregroundColor(Color(#colorLiteral(red: 0.62, green: 0.62, blue: 0.62, alpha: 1)))
-                                .multilineTextAlignment(.center)
-                        })
-                        
-                        Button(action: {
-                            
-                        }, label: {
-                            Text("Tâm lý")
-                                .font(.system(size: 16))
-                                .foregroundColor(Color(#colorLiteral(red: 0.62, green: 0.62, blue: 0.62, alpha: 1)))
-                                .multilineTextAlignment(.center)
-                        })
-                        
-                        Button(action: {
-                            
-                        }, label: {
-                            Text("Giáo dục")
-                                .font(.system(size: 16))
-                                .foregroundColor(Color(#colorLiteral(red: 0.62, green: 0.62, blue: 0.62, alpha: 1)))
-                                .multilineTextAlignment(.center)
-                        })
-                    }
-                }
-                .padding(EdgeInsets(top: 10, leading: 0, bottom: 5, trailing: 0))
-                
-                ScrollView (.horizontal, showsIndicators: false) {
-                    HStack(spacing: 10){
-                        Button(action: {
-                            
-                        }, label: {
-                            VStack(alignment: .center) {
-                                Image(uiImage: #imageLiteral(resourceName: "nhasachmienphi-20-gio-dau-tien"))
-                                    .resizable()
-                                    .aspectRatio(contentMode: .fill)
-                                    .frame(width: 160, height: 250)
-                                    .clipShape(RoundedRectangle(cornerRadius: 20))
-                                Text("20 giờ đầu tiên")
-                                    .font(.system(size: 16))
-                                    .fontWeight(/*@START_MENU_TOKEN@*/.bold/*@END_MENU_TOKEN@*/)
-                                    .foregroundColor(Color(#colorLiteral(red: 0.1, green: 0.1, blue: 0.11, alpha: 1)))
-                                    .multilineTextAlignment(.center)
-                                Text("Josh Kaufman")
-                                    .font(.system(size: 14))
-                                    .foregroundColor(Color(#colorLiteral(red: 0.62, green: 0.62, blue: 0.62, alpha: 1)))
-                                    .multilineTextAlignment(.center)
-                            }
-                        })
-                        
-                        Button(action: {
-                            
-                        }, label: {
-                            VStack(alignment: .center) {
-                                Image(uiImage: #imageLiteral(resourceName: "nhasachmienphi-mot-ngay-cho-mot-doi"))
-                                    .resizable()
-                                    .aspectRatio(contentMode: .fill)
-                                    .frame(width: 160, height: 250)
-                                    .clipShape(RoundedRectangle(cornerRadius: 20))
-                                Text("Một ngày cho đời")
-                                    .font(.system(size: 16))
-                                    .fontWeight(.bold)
-                                    .foregroundColor(Color(#colorLiteral(red: 0.1, green: 0.1, blue: 0.11, alpha: 1)))
-                                    .multilineTextAlignment(.center)
-                                Text("Christin Antoni")
-                                    .font(.system(size: 14))
-                                    .foregroundColor(Color(#colorLiteral(red: 0.62, green: 0.62, blue: 0.62, alpha: 1)))
-                                    .multilineTextAlignment(.center)
-                            }
-                        })
-                        
-                        Button(action: {
-                            
-                        }, label: {
-                            VStack(alignment: .center) {
-                                Image(uiImage: #imageLiteral(resourceName: "nhasachmienphi-vuon-tran-trui"))
-                                    .resizable()
-                                    .aspectRatio(contentMode: .fill)
-                                    .frame(width: 160, height: 250)
-                                    .clipShape(RoundedRectangle(cornerRadius: 20))
-                                Text("Vượn trần trụi")
-                                    .font(.system(size: 16))
-                                    .fontWeight(/*@START_MENU_TOKEN@*/.bold/*@END_MENU_TOKEN@*/)
-                                    .foregroundColor(Color(#colorLiteral(red: 0.1, green: 0.1, blue: 0.11, alpha: 1)))
-                                    .multilineTextAlignment(.center)
-                                Text("Desmond Morris")
-                                    .font(.system(size: 14))
-                                    .foregroundColor(Color(#colorLiteral(red: 0.62, green: 0.62, blue: 0.62, alpha: 1)))
-                                    .multilineTextAlignment(.center)
-                            }
-                        })
-                        
-                        Button(action: {
-                            
-                        }, label: {
-                            VStack(alignment: .center) {
-                                Image(uiImage: #imageLiteral(resourceName: "nhasachmienphi-juliet"))
-                                    .resizable()
-                                    .aspectRatio(contentMode: .fill)
-                                    .frame(width: 160, height: 250)
-                                    .clipShape(RoundedRectangle(cornerRadius: 20))
-                                Text("Juliet")
-                                    .font(.system(size: 16))
-                                    .fontWeight(.bold)
-                                    .foregroundColor(Color(#colorLiteral(red: 0.1, green: 0.1, blue: 0.11, alpha: 1)))
-                                    .multilineTextAlignment(.center)
-                                Text("Anne Fortier")
-                                    .font(.system(size: 14))
-                                    .foregroundColor(Color(#colorLiteral(red: 0.62, green: 0.62, blue: 0.62, alpha: 1)))
-                                    .multilineTextAlignment(.center)
-                            }
-                        })
-                    }
-                }
-                
-                Text("Sách mới")
-                    .font(.system(size: 24))
-                    .fontWeight(.heavy)
-                    .foregroundColor(Color(#colorLiteral(red: 0.1, green: 0.1, blue: 0.11, alpha: 1)))
-                
-                ScrollView (.horizontal, showsIndicators: false) {
-                    HStack(spacing: 10){
-                        Button(action: {
-                            
-                        }, label: {
-                            VStack(alignment: .center) {
-                                Image(uiImage: #imageLiteral(resourceName: "nhasachmienphi-bay-nam-sau"))
-                                    .resizable()
-                                    .aspectRatio(contentMode: .fill)
-                                    .frame(width: 160, height: 250)
-                                    .clipShape(RoundedRectangle(cornerRadius: 20))
-                                Text("20 giờ đầu tiên")
-                                    .font(.system(size: 16))
-                                    .fontWeight(.bold)
-                                    .foregroundColor(Color(#colorLiteral(red: 0.1, green: 0.1, blue: 0.11, alpha: 1)))
-                                    .multilineTextAlignment(.center)
-                                Text("Josh Kaufman")
-                                    .font(.system(size: 14))
-                                    .foregroundColor(Color(#colorLiteral(red: 0.62, green: 0.62, blue: 0.62, alpha: 1)))
-                                    .multilineTextAlignment(.center)
-                            }
-                        })
-                        
-                        Button(action: {
-                            
-                        }, label: {
-                            VStack(alignment: .center) {
-                                Image(uiImage: #imageLiteral(resourceName: "nhasachmienphi-soi-thao-nguyen"))
-                                    .resizable()
-                                    .aspectRatio(contentMode: .fill)
-                                    .frame(width: 160, height: 250)
-                                    .clipShape(RoundedRectangle(cornerRadius: 20))
-                                Text("Một ngày cho đời")
-                                    .font(.system(size: 16))
-                                    .fontWeight(.bold)
-                                    .foregroundColor(Color(#colorLiteral(red: 0.1, green: 0.1, blue: 0.11, alpha: 1)))
-                                    .multilineTextAlignment(.center)
-                                Text("Christin Antoni")
-                                    .font(.system(size: 14))
-                                    .foregroundColor(Color(#colorLiteral(red: 0.62, green: 0.62, blue: 0.62, alpha: 1)))
-                                    .multilineTextAlignment(.center)
-                            }
-                        })
-                        
-                        Button(action: {
-                            
-                        }, label: {
-                            VStack(alignment: .center) {
-                                Image(uiImage: #imageLiteral(resourceName: "nhasachmienphi-20-gio-dau-tien"))
-                                    .resizable()
-                                    .aspectRatio(contentMode: .fill)
-                                    .frame(width: 160, height: 250)
-                                    .clipShape(RoundedRectangle(cornerRadius: 20))
-                                Text("Vượn trần trụi")
-                                    .font(.system(size: 16))
-                                    .fontWeight(/*@START_MENU_TOKEN@*/.bold/*@END_MENU_TOKEN@*/)
-                                    .foregroundColor(Color(#colorLiteral(red: 0.1, green: 0.1, blue: 0.11, alpha: 1)))
-                                    .multilineTextAlignment(.center)
-                                Text("Desmond Morris")
-                                    .font(.system(size: 14))
-                                    .foregroundColor(Color(#colorLiteral(red: 0.62, green: 0.62, blue: 0.62, alpha: 1)))
-                                    .multilineTextAlignment(.center)
-                            }
-                        })
-                        
-                        Button(action: {
-                            
-                        }, label: {
-                            VStack(alignment: .center) {
-                                Image(uiImage: #imageLiteral(resourceName: "nhasachmienphi-juliet"))
-                                    .resizable()
-                                    .aspectRatio(contentMode: .fill)
-                                    .frame(width: 160, height: 250)
-                                    .clipShape(RoundedRectangle(cornerRadius: 20))
-                                Text("Juliet")
-                                    .font(.system(size: 16))
-                                    .fontWeight(/*@START_MENU_TOKEN@*/.bold/*@END_MENU_TOKEN@*/)
-                                    .foregroundColor(Color(#colorLiteral(red: 0.1, green: 0.1, blue: 0.11, alpha: 1)))
-                                    .multilineTextAlignment(.center)
-                                Text("Anne Fortier")
-                                    .font(.system(size: 14))
-                                    .foregroundColor(Color(#colorLiteral(red: 0.62, green: 0.62, blue: 0.62, alpha: 1)))
-                                    .multilineTextAlignment(.center)
-                            }
-                        })
-                    }
-                }
-                
+                .navigationBarTitle("")
+                .navigationBarHidden(true)
             }
-            .padding(.horizontal)
-            .navigationBarTitle("")
-            .navigationBarHidden(true)
+            
+            bottomNavBar(selectedBottomNavBarItemIndex: $selectedBottomNavBarItemIndex)
         }
-        
-        
     }
 }
 
@@ -334,10 +100,6 @@ extension UIApplication {
     }
 }
 
-
-
-
-
 struct sideMenu_profileButton: View {
     var body: some View {
         HStack {
@@ -346,20 +108,16 @@ struct sideMenu_profileButton: View {
             } label: {
                 Image("align-left")
                     .resizable()
-                    .frame(width: 35, height: 35)
-            }
-            
-            
-            Spacer()
-            
-            Button{
+                    .frame(width: 40, height: 40)
                 
+            }
+            Spacer()
+            Button{
             } label: {
                 Image("people")
                     .resizable()
-                    .frame(width: 42, height: 42)
+                    .frame(width: 40, height: 40)
             }
-            
         }
     }
 }
@@ -369,15 +127,12 @@ struct welcomeText: View {
     @Binding var username:String
     
     var body: some View {
-        HStack {
-            Text("Chào mừng quay trở lại,")
-                .font(.custom("Poppins Medium", size: 16))
-                .foregroundColor(Color(red: 0.62, green: 0.62, blue: 0.62))
-            Text("\(username)")
-                .font(.custom("Poppins Medium", size: 16))
-                .foregroundColor(Color(red: 0.501960814, green: 0.501960814, blue: 0.501960814))
-            Spacer()
-        }
+        Text("Chào mừng quay trở lại,")
+            .font(.custom("Poppins Medium", size: 16))
+            .foregroundColor(Color(red: 0.62, green: 0.62, blue: 0.62))
+        + Text(" \(username).")
+            .font(.custom("Poppins Medium", size: 16))
+            .foregroundColor(Color(red: 0.501960814, green: 0.501960814, blue: 0.501960814))
     }
 }
 
@@ -386,36 +141,28 @@ struct searchBar: View {
     @Binding var searchText:String
     
     var body: some View {
-        HStack{
-            //TextField xoá tham số onEditingChanged
-            TextField("Tìm kiếm...", text: $searchText, onCommit: {
-                print("onCommit")
-            })
+        HStack(spacing:0){
+            HStack{
+                Image(systemName: "magnifyingglass")
+                    .font(.system(size: 18))
+                    .foregroundColor(Color(red: 0.6000000238, green: 0.6000000238, blue: 0.6000000238))
+                
+                TextField("Tìm kiếm...", text: $searchText, onCommit: {
+                    print("onCommit")
+                })
                 .font(.system(size: 16))
                 .foregroundColor(.primary)
-                .padding(EdgeInsets(top: 6, leading: 30, bottom: 6, trailing: 30))
-            //padding trên background căn phần chữ trong textfield
-                .background(Color(red: 0.7686274647712708, green: 0.7686274647712708, blue: 0.7686274647712708).opacity(0.15))
-            //padding dưới background căn cả textfield
-                .cornerRadius(8)
-                .overlay(
-                    HStack{
-                        Image(systemName: "magnifyingglass")
-                            .foregroundColor(Color(red: 0.6000000238, green: 0.6000000238, blue: 0.6000000238))
-//                            .frame(minWidth: 0, maxWidth: .infinity, alignment: .leading)
-//                        cho max width lớn nhất rồi căn trái, tương đương xài Spacer()
-                            .padding(.leading,7)
-                        
-                        
-                        Spacer()
-                        
-                        if searchText.count > 0 {
-                            Image(systemName: "xmark.circle.fill")
-                                .foregroundColor(Color(red: 0.12941177189350128, green: 0.7215686440467834, blue: 0.572549045085907))
-                                .padding(.trailing, 7)
-                        }
-                    })
-                .animation(.default) //animation cho TextField
+                
+                if searchText.count > 0 {
+                    Image(systemName: "xmark.circle.fill")
+                        .font(.system(size: 18))
+                        .foregroundColor(Color(red: 0.12941177189350128, green: 0.7215686440467834, blue: 0.572549045085907))
+                }
+            }
+            .padding()
+            .background(Color(red: 0.7686274647712708, green: 0.7686274647712708, blue: 0.7686274647712708).opacity(0.15))
+            .cornerRadius(8)
+            .animation(.default)
             
             
             if searchText.count > 0 {
@@ -426,15 +173,182 @@ struct searchBar: View {
                 } label: {
                     Text("Cancel")
                 }
+                .font(.system(size: 18))
                 .foregroundColor(Color(red: 0.12941177189350128, green: 0.7215686440467834, blue: 0.572549045085907))
                 .background(Color.white)
-                .padding(.leading,10)
-                .transition(.move(edge: .trailing)) //Xuất từ bên phải
+                .padding(.leading)
+                .transition(.move(edge: .trailing)) //Xuất hiện từ bên phải
                 .animation(.default)
-                
-                Spacer()
+            }
+        }
+    }
+}
+
+struct theLoaiBtn_bookMarkBtn: View {
+    var body: some View {
+        HStack(spacing:0) {
+            
+            button(image:Image("photo-1507842217343-583bb7270b66"),
+                   colorOverlay: Color(red: 0.6784313917160034, green: 0.8117647171020508, blue: 0.9176470637321472).opacity(0.85),
+                   title: "THỂ LOẠI",
+                   subtitle: "CHUYÊN MỤC")
+            .padding(.trailing)
+            
+            button(image:Image("photo-1617635837145-cf409451c41e"),
+                   colorOverlay: Color(red: 0.5843137502670288, green: 0.7803921699523926, blue: 0.7372549176216125).opacity(0.85),
+                   title: "BOOKMARK",
+                   subtitle: "TRUYỆN CỦA BẠN")
+            .padding(.leading)
+        }
+    }
+}
+
+struct button: View {
+    let image:Image
+    let colorOverlay:Color
+    let title:String
+    let subtitle:String
+    var body: some View {
+        Button {
+        } label: {
+            ZStack {
+                image
+                    .resizable()
+                    .clipShape(RoundedRectangle(cornerRadius: 20))
+                    .overlay(
+                        RoundedRectangle(cornerRadius: 20)
+                            .fill(colorOverlay)
+                        
+                    )
+                ( Text(title)
+                    .font(.system(size: 22))
+                    .fontWeight(.heavy)
+                  + Text("\n# \(subtitle)")
+                    .font(.system(size: 14))
+                    .fontWeight(.semibold)
+                )
+                .lineSpacing(5)
+                .foregroundColor(.white)
+            }
+            .frame(maxWidth: .infinity, maxHeight: 90)
+            
+        }
+    }
+}
+
+struct categoryBarItem: View {
+    let text:String
+    let action:()->Void
+    let isSelected:Bool
+    var body: some View {
+        Button(action: action,
+               label: {
+            Text(text)
+                .font(.system(size: 16))
+                .foregroundColor( isSelected ? Color(red: 0.1, green: 0.1, blue: 0.11)
+                                  : Color(red: 0.62, green: 0.62, blue: 0.62))
+                .multilineTextAlignment(.center)
+                .padding(.trailing)
+        })
+    }
+}
+
+struct categoryBar: View {
+    let categories:[String]
+    @Binding var selectedCategoryIndex:Int
+    var body: some View {
+        ScrollView (.horizontal, showsIndicators: false) {
+            HStack {
+                ForEach(0 ..< categories.count) { index in
+                    categoryBarItem(text: categories[index],
+                                    action: {selectedCategoryIndex = index},
+                                    isSelected: index == selectedCategoryIndex)
+                }
+            }
+        }
+    }
+}
+
+struct Book: View {
+    let image:Image
+    let title:String
+    let author:String
+    var body: some View {
+        Button(action: {
+            
+        }, label: {
+            VStack(alignment: .center) {
+                image
+                    .resizable()
+                    .aspectRatio(contentMode: .fill)
+                    .frame(width: 160, height: 250)
+                    .clipShape(RoundedRectangle(cornerRadius: 20))
+                Text(title)
+                    .font(.system(size: 16))
+                    .fontWeight(/*@START_MENU_TOKEN@*/.bold/*@END_MENU_TOKEN@*/)
+                    .foregroundColor(Color(red: 0.1, green: 0.1, blue: 0.11))
+                    .multilineTextAlignment(.center)
+                Text(author)
+                    .font(.system(size: 16))
+                    .foregroundColor(Color(red: 0.62, green: 0.62, blue: 0.62))
+                    .multilineTextAlignment(.center)
+            }
+            .padding(.trailing)
+        })
+    }
+}
+
+struct listBook: View {
+    let books:[myBook]
+    var body: some View {
+        ScrollView (.horizontal, showsIndicators: false) {
+            HStack(){
+                ForEach(0..<books.count) { index in
+                    Book(image: books[index].image, title: books[index].title, author: books[index].author)
+                }
                 
             }
         }
     }
 }
+
+struct bottomNavBarItem: View {
+    let image:Image
+    let isActive:Bool
+    let action:()->Void
+    var body: some View {
+        Button(action: action) {
+            image
+                .font(.system(size: 24))
+                .foregroundColor( isActive ? Color(red: 212/255, green: 85/255, blue: 85/255)
+                                  : Color.black.opacity(0.6))
+                .frame(maxWidth:.infinity)
+        }
+    }
+}
+
+struct bottomNavBar: View {
+    @Binding var selectedBottomNavBarItemIndex:Int
+    let imageNameArray = ["house","book","bookmark","gearshape"]
+    var body: some View {
+        HStack{
+            ForEach(0..<imageNameArray.count) { i in
+                bottomNavBarItem(image: Image(systemName: "\(imageNameArray[i])"),
+                                 isActive: i == selectedBottomNavBarItemIndex,
+                                 action: {
+                    selectedBottomNavBarItemIndex = i
+                })
+            }
+        }
+        .padding()
+        .padding(.horizontal)
+        .padding(.top)
+        .background(Color.white)
+        .cornerRadius(50)
+        .shadow(color: Color.black.opacity(0.3), radius: 3)
+        .frame(maxHeight:.infinity,alignment: .bottom)
+        .edgesIgnoringSafeArea(.bottom)
+    }
+}
+
+
