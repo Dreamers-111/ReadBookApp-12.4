@@ -95,6 +95,7 @@
 				095A465B27D99A3300770C64 /* ReadBookView.swift */,
 				095A466027D99A6600770C64 /* BookmarkView.swift */,
 				095A466527D99AE200770C64 /* SettingView.swift */,
+				095C698227DE60D3002916AB /* MenuView.swift */,
 				947D31D927D12D0D0022893A /* Assets.xcassets */,
 			);
 			path = Views;
@@ -126,7 +127,6 @@
 				947D31D527D12D050022893A /* ReadBookAppApp.swift */,
 				947D31D727D12D050022893A /* ContentView.swift */,
 				092BAC6427D26BAF008CD578 /* Views */,
-				095C698227DE60D3002916AB /* MenuView.swift */,
 				947D31DE27D12D0D0022893A /* Info.plist */,
 				947D31DB27D12D0D0022893A /* Preview Content */,
 			);

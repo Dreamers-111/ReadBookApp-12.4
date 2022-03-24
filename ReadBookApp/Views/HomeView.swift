@@ -21,8 +21,8 @@ class myBook{
     }
 }
 
-struct HomeView: View {
-    
+struct MainView: View {
+    @Binding var showMenu: Bool
     @State private var username: String = "Dreamers"
     @State private var searchText = ""
     let categories = ["Tiểu thuyết","Khoa học","Lãng mạn","Tâm lý","Giáo dục"]
@@ -42,7 +42,7 @@ struct HomeView: View {
             ScrollView(showsIndicators: false) {
                 VStack(alignment: .leading,spacing:0) {
                     
-                    sideMenu_profileButton()
+                    sideMenu_profileButton(showMenu: $showMenu)
                         .padding(.horizontal)
                     
                     welcomeText(username: $username)
@@ -85,6 +85,44 @@ struct HomeView: View {
     }
 }
 
+struct HomeView: View {
+    @State var showMenu = false
+    var body: some View {
+        
+        let drag = DragGesture()
+            .onChanged {
+                if $0.translation.width > 50 {
+                    withAnimation{
+                        self.showMenu = true
+                    }
+                }
+            }
+            .onEnded {
+                if $0.translation.width < 50 {
+                    self.showMenu = false
+                }
+            }
+        
+        return GeometryReader { geometry in
+            ZStack(alignment: .leading){
+                MainView(showMenu: self.$showMenu)
+                    .frame(width: geometry.size.width)
+                    .disabled(self.showMenu ? true : false)
+                    .opacity(self.showMenu ? 0.5 : 1.0)
+                    .onTapGesture {
+                        self.showMenu = false
+                    }
+                if self.showMenu {
+                    MenuView()
+                        .frame(width: geometry.size.width/1.2)
+                        .transition(.slide)
+                }
+            }
+                .gesture(drag)
+        }
+    }
+}
+
 struct HomeView_Previews: PreviewProvider {
     static var previews: some View {
         HomeView()
@@ -101,10 +139,13 @@ extension UIApplication {
 }
 
 struct sideMenu_profileButton: View {
+    @Binding var showMenu: Bool
     var body: some View {
         HStack {
             Button {
-                print("open the side menu")
+                withAnimation{
+                    self.showMenu = true
+                }
             } label: {
                 Image("align-left")
                     .resizable()
@@ -218,7 +259,6 @@ struct button: View {
                     .overlay(
                         RoundedRectangle(cornerRadius: 20)
                             .fill(colorOverlay)
-                        
                     )
                 ( Text(title)
                     .font(.system(size: 22))
@@ -306,7 +346,6 @@ struct listBook: View {
                 ForEach(0..<books.count) { index in
                     Book(image: books[index].image, title: books[index].title, author: books[index].author)
                 }
-                
             }
         }
     }
