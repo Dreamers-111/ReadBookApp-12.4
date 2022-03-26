@@ -20,6 +20,7 @@
 		947D31DD27D12D0D0022893A /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 947D31DC27D12D0D0022893A /* Preview Assets.xcassets */; };
 		947D31E827D12D0E0022893A /* ReadBookAppTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 947D31E727D12D0E0022893A /* ReadBookAppTests.swift */; };
 		947D31F327D12D0E0022893A /* ReadBookAppUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 947D31F227D12D0E0022893A /* ReadBookAppUITests.swift */; };
+		B2C9889D27ED96870009D7E2 /* BookChapterView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B2C9889C27ED96870009D7E2 /* BookChapterView.swift */; };
 		B6AD335627EC17830083FF67 /* BookPriviewView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6AD335527EC17830083FF67 /* BookPriviewView.swift */; };
 /* End PBXBuildFile section */
 
@@ -60,6 +61,7 @@
 		947D31EE27D12D0E0022893A /* ReadBookAppUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = ReadBookAppUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		947D31F227D12D0E0022893A /* ReadBookAppUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReadBookAppUITests.swift; sourceTree = "<group>"; };
 		947D31F427D12D0E0022893A /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		B2C9889C27ED96870009D7E2 /* BookChapterView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BookChapterView.swift; sourceTree = "<group>"; };
 		B6AD335527EC17830083FF67 /* BookPriviewView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BookPriviewView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -99,6 +101,7 @@
 				095A466527D99AE200770C64 /* SettingView.swift */,
 				095C698227DE60D3002916AB /* MenuView.swift */,
 				B6AD335527EC17830083FF67 /* BookPriviewView.swift */,
+				B2C9889C27ED96870009D7E2 /* BookChapterView.swift */,
 				947D31D927D12D0D0022893A /* Assets.xcassets */,
 			);
 			path = Views;
@@ -295,6 +298,7 @@
 				095A466127D99A6600770C64 /* BookmarkView.swift in Sources */,
 				092BAC6627D26BDC008CD578 /* SignUpView.swift in Sources */,
 				092BAC6B27D26C29008CD578 /* SignInView.swift in Sources */,
+				B2C9889D27ED96870009D7E2 /* BookChapterView.swift in Sources */,
 				B6AD335627EC17830083FF67 /* BookPriviewView.swift in Sources */,
 				095C698327DE60D3002916AB /* MenuView.swift in Sources */,
 				095E8F2F27D592240005C50C /* HomeView.swift in Sources */,
