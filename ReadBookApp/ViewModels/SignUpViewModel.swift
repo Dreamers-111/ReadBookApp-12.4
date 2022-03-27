@@ -7,8 +7,12 @@
 
 import Foundation
 import Combine
+import Firebase
 
 class SignUpViewModel: ObservableObject{
+    
+    let db = Firestore.firestore()
+    
     @Published var ho = ""
     @Published var ten = ""
     @Published var gioitinh = ""
@@ -146,6 +150,20 @@ class SignUpViewModel: ObservableObject{
     }
     
     func signUp() -> Void {
-        print("123")
+        db.collection("user").addDocument(data: ["ho":ho,
+                                                 "ten":ten,
+                                                 "gioitinh":gioitinh,
+                                                 "ngaysinh":Calendar.current.startOfDay(for: ngaysinh),
+                                                 "email":email,
+                                                 "password":password])
+        
+        ho = ""
+        ten = ""
+        gioitinh = ""
+        email = ""
+        ngaysinh = Calendar.current.date(byAdding: .year, value: -12, to: Date())!
+        email = ""
+        password = ""
+        confirmPassword = ""
     }
 }
