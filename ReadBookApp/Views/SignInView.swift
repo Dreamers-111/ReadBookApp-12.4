@@ -10,7 +10,7 @@ import SwiftUI
 
 struct SignInView: View {
     
-    @State private  var username = ""
+    @State private  var email = ""
     @State private  var password = ""
     
     var body: some View {
@@ -23,12 +23,14 @@ struct SignInView: View {
                     .padding(.vertical)
                 subtitleSighIn()
                     .padding(.bottom)
-                UserInput2(username: $username, password: $password)
+                    .padding(.bottom)
+                UserInput2(fontsize:18, email: $email, password: $password)
                     .padding(.top)
                     .padding(.horizontal)
                     .padding(.horizontal)
                     .padding(.horizontal)
-                Buttons2(username: $username, password: $password)
+                Buttons2(email: $email, password: $password)
+                    .padding(.top)
                     .padding(.top)
             }
             .navigationBarTitle("")
@@ -41,54 +43,30 @@ struct SignInView: View {
 
 
 struct UserInput2: View {
-    @Binding var username:String
+    let fontsize:CGFloat
+    @Binding var email:String
     @Binding var password:String
-    @State private var hide = true
     
     var body: some View {
         VStack(spacing:0){
-            TextField("Tài khoản", text: $username)
-                .font(.system(size: 16))
-                .padding(.all, 10)
-                .padding(.horizontal)
-                .overlay(
-                    RoundedRectangle(cornerRadius: 300)
-                        .stroke(Color(red: 0.129, green: 0.722, blue: 0.573), lineWidth: 1)
-                )
-                .padding(.bottom)
-            
-            HStack{
-                if hide {
-                    SecureField("Mật khẩu",text: $password)
-                        .font(.system(size:16))
-                }
-                else{
-                    TextField("Mật khẩu",text: $password)
-                        .font(.system(size:16))
-                }
-                
-                Button {
-                    hide.toggle()
-                } label: {
-                    Image(systemName: hide ?  "eye.slash.fill" : "eye.fill" )
-                        .foregroundColor(hide ?  Color.secondary : Color.green )
-                        .padding(.leading)
-                }
-                
-            }
-            .padding(.all,10)
-            .padding(.horizontal)
-            .overlay(RoundedRectangle(cornerRadius: 300)
-                .stroke(Color(red: 0.129, green: 0.722, blue: 0.573), lineWidth: 1)
-            )
-            .padding(.bottom)
+            //Email
+            myTextField1(type: "text",
+                         fontsize: fontsize,
+                         placeholder: "Email", text: $email,
+                         prompt: "")
+
+            //Password
+            myTextField1(type: "password",
+                         fontsize: fontsize,
+                         placeholder: "Mật khẩu", text: $password,
+                         prompt: "")
         }
     }
 }
 
 struct Buttons2: View {
     
-    @Binding var username:String
+    @Binding var email:String
     @Binding var password:String
     @State private var selection: Int? = nil
     
@@ -98,7 +76,7 @@ struct Buttons2: View {
                 HomeView()
             } label: {
                 Button {
-                    if username == "" && password == "" {
+                    if email == "" && password == "" {
                         self.selection = 3
                     }
                 } label: {
@@ -114,8 +92,8 @@ struct Buttons2: View {
                                           blue: 0.572549045085907))
                         .cornerRadius(16)
                 }
-                .padding(.bottom)
             }
+            .padding(.bottom)
 
             NavigationLink(tag: 2, selection: $selection) {
                 SignUpView()
@@ -142,8 +120,8 @@ struct Buttons2: View {
                             )
                 }
             }
+            .padding(.bottom)
                  
-            Spacer()
             
             NavigationLink(tag: 1, selection: $selection) {
                 SignUpView()

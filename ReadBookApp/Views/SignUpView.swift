@@ -9,25 +9,41 @@ import SwiftUI
 
 struct SignUpView: View {
     
-    @State private var email = ""
-    @State private var username = ""
-    @State private var password = ""
+    @StateObject private var viewModel = SignUpViewModel()
     
     var body: some View {
-        VStack(spacing:0) {
-            titleSignUp()
-            imageSignUp().padding()
-            subtitleSighUp()
-            UserInput(email: $email, username: $username, password: $password)
-                .padding(.top)
-                .padding(.horizontal)
-                .padding(.horizontal)
-                .padding(.horizontal)
-            Buttons(email: $email, username: $username, password: $password)
-                .padding(.top)
-        }
-        .navigationBarTitle("")
+        ScrollView(showsIndicators:false) {
+            VStack(spacing:0) {
+                titleSignUp()
+                imageSignUp().padding()
+                subtitleSighUp()
+                UserInput(fontsize: 16,
+                          ho: $viewModel.ho,
+                          ten: $viewModel.ten,
+                          gioitinh: $viewModel.gioitinh,
+                          ngaysinh: $viewModel.ngaysinh,
+                          email: $viewModel.email,
+                          password: $viewModel.password,
+                          confirmPassword: $viewModel.confirmPassword,
+                          
+                          hoPrompt: viewModel.hoPrompt,
+                          tenPrompt: viewModel.tenPrompt,
+                          gioitinhPrompt: viewModel.gioitinhPrompt,
+                          emailPrompt: viewModel.emailPrompt,
+                          passwordPrompt: viewModel.passwordPrompt,
+                          confirmPasswordPrompt: viewModel.confirmPasswordPrompt)
+                    .padding(.top)
+                    .padding(.horizontal)
+                    .padding(.horizontal)
+                    .padding(.horizontal)
+                
+                Buttons(submit: {viewModel.signUp()},
+                        canSubmit: $viewModel.canSubmit)
+                    .padding(.top)
+            }
+            .navigationBarTitle("")
         .navigationBarHidden(true)
+        }
     }
 }
 
@@ -68,79 +84,89 @@ struct subtitleSighUp: View {
 
 struct UserInput: View {
     
+    let fontsize:CGFloat
+    @Binding  var ho: String
+    @Binding  var ten: String
+    @Binding  var gioitinh: String
+    @Binding  var ngaysinh: Date
     @Binding  var email: String
-    @Binding  var username: String
     @Binding  var password: String
-    @State private var hide = true
+    @Binding  var confirmPassword: String
+    
+    let hoPrompt:String
+    let tenPrompt:String
+    let gioitinhPrompt:String
+    let emailPrompt:String
+    let passwordPrompt:String
+    let confirmPasswordPrompt:String
+
+    let dateRange: PartialRangeThrough<Date> = {
+        return ...Calendar.current.date(byAdding: .year, value: -12, to: Date())!
+    }()
     
     var body: some View {
         VStack(spacing:0){
+            //Họ
+            myTextField1(type: "text",
+                         fontsize: fontsize,
+                         placeholder: "Họ", text: $ho,
+                         prompt: hoPrompt)
+            
+            //Tên
+            myTextField1(type: "text",
+                         fontsize: fontsize,
+                         placeholder: "Tên", text: $ten
+                         ,
+                         prompt: tenPrompt)
+            //Giới tính
+            myTextField1(type: "gender",
+                         fontsize: fontsize,
+                         placeholder: "Giới tính", text: $gioitinh,
+                         prompt: gioitinhPrompt)
+            
+            //Ngày sinh
+                DatePicker(selection: $ngaysinh,
+                           in: dateRange,
+                           displayedComponents: .date) {
+                        Text("Birthday")
+                            .font(.system(size: fontsize))
+                            .foregroundColor(Color(red: 0.129, green: 0.722, blue: 0.573))
+                }
+                .accentColor(Color(red: 0.129, green: 0.722, blue: 0.573))
+                .padding(.bottom)
+             
+
             //Email
-            TextField("Email", text: $email)
-                .font(.system(size: 16))
-                .padding(.all,10)
-                .padding(.horizontal)
-                .overlay(
-                    RoundedRectangle(cornerRadius: 300)
-                        .stroke(Color(red: 0.129, green: 0.722, blue: 0.573), lineWidth: 1)
-                )
-                .padding(.bottom)
-            
-            //Username
-            TextField("Tài khoản", text: $username)
-                .font(.system(size: 16))
-                .padding(.all,10)
-                .padding(.horizontal)
-                .overlay(
-                    RoundedRectangle(cornerRadius: 300)
-                        .stroke(Color(red: 0.129, green: 0.722, blue: 0.573), lineWidth: 1)
-                )
-                .padding(.bottom)
-            
+            myTextField1(type: "text",
+                         fontsize: fontsize,
+                         placeholder: "Email", text: $email,
+                         prompt: emailPrompt)
+
             //Password
-            HStack(spacing:0){
-                if hide{
-                    SecureField("Mật khẩu", text: $password)
-                        .font(.system(size: 16))
-                }
-                else {
-                    TextField("Mật khẩu", text: $password)
-                        .font(.system(size: 16))
-                }
-              
-                   
-                
-                Button {
-                    hide.toggle()
-                } label: {
-                    Image(systemName: hide ? "eye.slash.fill" : "eye.fill")
-                        .foregroundColor(hide ?  Color.secondary : Color.green )
-                        .padding(.leading)
-                }
-                
-            }
-            .padding(.all,10)
-            .padding(.horizontal)
-            .overlay(
-                RoundedRectangle(cornerRadius: 300)
-                    .stroke(Color(red: 0.129, green: 0.722, blue: 0.573), lineWidth: 1)
-            )
-            .padding(.bottom)
+            myTextField1(type: "password",
+                         fontsize: fontsize,
+                         placeholder: "Mật khẩu", text: $password,
+                         prompt: passwordPrompt)
+
+            //ConfirmPassword
+            myTextField1(type: "password",
+                         fontsize: fontsize,
+                         placeholder: "Xác nhận", text: $confirmPassword,
+                         prompt: confirmPasswordPrompt)
         }
     }
 }
 
 struct Buttons: View {
     
-    @Binding  var email: String
-    @Binding  var username: String
-    @Binding  var password: String
+    let submit:()->Void
+    @Binding  var canSubmit: Bool
     @State private var selection: Int? = nil
     
     var body: some View {
         VStack(spacing:0){
             Button {
-                print("email: \(email), username: \(username), password: \(password)")
+                submit()
             } label: {
                 Text("ĐĂNG KÝ")
                     .font(.custom("Poppins Regular", size: 16))
@@ -155,9 +181,13 @@ struct Buttons: View {
                     .cornerRadius(16)
                 
             }
+            .padding(.bottom)
+            .padding(.bottom)
+            .opacity(canSubmit ? 1 : 0.6)
+            .disabled(!canSubmit)
+
     
-            Spacer()
-            
+                        
             NavigationLink(tag: 1, selection: $selection) {
                 SignInView()
             } label: {
