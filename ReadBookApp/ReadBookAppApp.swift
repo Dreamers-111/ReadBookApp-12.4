@@ -12,7 +12,7 @@ import Firebase
 struct ReadBookAppApp: App {
     var body: some Scene {
         WindowGroup {
-            ContentView()
+            CategoryView()
         }
     }
     init(){

@@ -3,7 +3,7 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 50;
+	objectVersion = 51;
 	objects = {
 
 /* Begin PBXBuildFile section */
@@ -28,6 +28,13 @@
 		94E7347327F0ED5700D6ADAF /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 94E7347227F0ED5700D6ADAF /* GoogleService-Info.plist */; };
 		B2C9889D27ED96870009D7E2 /* BookChapterView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B2C9889C27ED96870009D7E2 /* BookChapterView.swift */; };
 		B6AD335627EC17830083FF67 /* BookPriviewView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6AD335527EC17830083FF67 /* BookPriviewView.swift */; };
+		B6E800E727F1605A00619397 /* CategoryView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6E800E627F1605A00619397 /* CategoryView.swift */; };
+		B6E800EA27F160DB00619397 /* tieuthuyetBtnView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6E800E927F160DB00619397 /* tieuthuyetBtnView.swift */; };
+		B6E800EC27F1610000619397 /* khoahocBtnView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6E800EB27F1610000619397 /* khoahocBtnView.swift */; };
+		B6E800EE27F1611400619397 /* langmanBtnView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6E800ED27F1611400619397 /* langmanBtnView.swift */; };
+		B6E800F027F1612C00619397 /* nuocngoaiBtnView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6E800EF27F1612C00619397 /* nuocngoaiBtnView.swift */; };
+		B6E800F227F1614000619397 /* tamlyBtnView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6E800F127F1614000619397 /* tamlyBtnView.swift */; };
+		B6E800F427F1615800619397 /* vanhocBtnView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6E800F327F1615800619397 /* vanhocBtnView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -77,6 +84,13 @@
 		9DA318F58DC9B0386F264042 /* Pods-ReadBookApp-ReadBookAppUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ReadBookApp-ReadBookAppUITests.release.xcconfig"; path = "Target Support Files/Pods-ReadBookApp-ReadBookAppUITests/Pods-ReadBookApp-ReadBookAppUITests.release.xcconfig"; sourceTree = "<group>"; };
 		B2C9889C27ED96870009D7E2 /* BookChapterView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BookChapterView.swift; sourceTree = "<group>"; };
 		B6AD335527EC17830083FF67 /* BookPriviewView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BookPriviewView.swift; sourceTree = "<group>"; };
+		B6E800E627F1605A00619397 /* CategoryView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoryView.swift; sourceTree = "<group>"; };
+		B6E800E927F160DB00619397 /* tieuthuyetBtnView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = tieuthuyetBtnView.swift; sourceTree = "<group>"; };
+		B6E800EB27F1610000619397 /* khoahocBtnView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = khoahocBtnView.swift; sourceTree = "<group>"; };
+		B6E800ED27F1611400619397 /* langmanBtnView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = langmanBtnView.swift; sourceTree = "<group>"; };
+		B6E800EF27F1612C00619397 /* nuocngoaiBtnView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = nuocngoaiBtnView.swift; sourceTree = "<group>"; };
+		B6E800F127F1614000619397 /* tamlyBtnView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = tamlyBtnView.swift; sourceTree = "<group>"; };
+		B6E800F327F1615800619397 /* vanhocBtnView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = vanhocBtnView.swift; sourceTree = "<group>"; };
 		C2639421D9EB6876CD1C2F7D /* Pods-ReadBookApp.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ReadBookApp.release.xcconfig"; path = "Target Support Files/Pods-ReadBookApp/Pods-ReadBookApp.release.xcconfig"; sourceTree = "<group>"; };
 		CF60DD5CA5FDF6BBAD08E761 /* Pods-ReadBookAppTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ReadBookAppTests.release.xcconfig"; path = "Target Support Files/Pods-ReadBookAppTests/Pods-ReadBookAppTests.release.xcconfig"; sourceTree = "<group>"; };
 		E433DDD492A1AD616DC350ED /* Pods_ReadBookAppTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_ReadBookAppTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -114,6 +128,7 @@
 		092BAC6427D26BAF008CD578 /* Views */ = {
 			isa = PBXGroup;
 			children = (
+				B6E800E827F1609B00619397 /* CategoryBtnView */,
 				94E7346F27F09ED800D6ADAF /* SharedViews */,
 				092BAC6527D26BDC008CD578 /* SignUpView.swift */,
 				092BAC6A27D26C29008CD578 /* SignInView.swift */,
@@ -125,6 +140,7 @@
 				B6AD335527EC17830083FF67 /* BookPriviewView.swift */,
 				B2C9889C27ED96870009D7E2 /* BookChapterView.swift */,
 				947D31D927D12D0D0022893A /* Assets.xcassets */,
+				B6E800E627F1605A00619397 /* CategoryView.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -139,7 +155,6 @@
 				04921FB212A15E8E87A620A4 /* Pods-ReadBookAppTests.debug.xcconfig */,
 				CF60DD5CA5FDF6BBAD08E761 /* Pods-ReadBookAppTests.release.xcconfig */,
 			);
-			name = Pods;
 			path = Pods;
 			sourceTree = "<group>";
 		};
@@ -227,6 +242,19 @@
 				94E7347027F09F0E00D6ADAF /* myTextField1.swift */,
 			);
 			path = SharedViews;
+			sourceTree = "<group>";
+		};
+		B6E800E827F1609B00619397 /* CategoryBtnView */ = {
+			isa = PBXGroup;
+			children = (
+				B6E800E927F160DB00619397 /* tieuthuyetBtnView.swift */,
+				B6E800EB27F1610000619397 /* khoahocBtnView.swift */,
+				B6E800ED27F1611400619397 /* langmanBtnView.swift */,
+				B6E800EF27F1612C00619397 /* nuocngoaiBtnView.swift */,
+				B6E800F127F1614000619397 /* tamlyBtnView.swift */,
+				B6E800F327F1615800619397 /* vanhocBtnView.swift */,
+			);
+			path = CategoryBtnView;
 			sourceTree = "<group>";
 		};
 		BDDA4C2212EB4A8F222BD257 /* Frameworks */ = {
@@ -482,14 +510,21 @@
 				092BAC6627D26BDC008CD578 /* SignUpView.swift in Sources */,
 				092BAC6B27D26C29008CD578 /* SignInView.swift in Sources */,
 				B2C9889D27ED96870009D7E2 /* BookChapterView.swift in Sources */,
+				B6E800F027F1612C00619397 /* nuocngoaiBtnView.swift in Sources */,
 				B6AD335627EC17830083FF67 /* BookPriviewView.swift in Sources */,
 				095C698327DE60D3002916AB /* MenuView.swift in Sources */,
 				94E7347127F09F0E00D6ADAF /* myTextField1.swift in Sources */,
+				B6E800E727F1605A00619397 /* CategoryView.swift in Sources */,
+				B6E800EE27F1611400619397 /* langmanBtnView.swift in Sources */,
+				B6E800F227F1614000619397 /* tamlyBtnView.swift in Sources */,
+				B6E800F427F1615800619397 /* vanhocBtnView.swift in Sources */,
 				095E8F2F27D592240005C50C /* HomeView.swift in Sources */,
 				095A466627D99AE200770C64 /* SettingView.swift in Sources */,
+				B6E800EC27F1610000619397 /* khoahocBtnView.swift in Sources */,
 				947D31D627D12D050022893A /* ReadBookAppApp.swift in Sources */,
 				94E7346E27F08BE300D6ADAF /* SignUpViewModel.swift in Sources */,
 				095A465C27D99A3300770C64 /* ReadBookView.swift in Sources */,
+				B6E800EA27F160DB00619397 /* tieuthuyetBtnView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
